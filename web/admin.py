@@ -1,3 +1,8 @@
 from django.contrib import admin
+from web.models import Subscribe, Welcome
 
-# Register your models here.
+
+admin.site.register(Welcome)
+admin.site.register(Subscribe)
+
+

@@ -552,6 +552,13 @@ pre code {
   margin-right: auto;
   margin-left: auto;
 }
+.header_bottom{
+  background: #3a4468;
+  padding: 10px;
+}
+.bgclass{
+  background: rgba(129, 202, 236, 0.801);
+}
 
 @media (min-width: 576px) {
   .container {

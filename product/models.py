@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.expressions import F
 from django.db.models.fields.related import ForeignKey
 
 class Product(models.Model):
@@ -13,9 +14,21 @@ class Product(models.Model):
     class Meta:
         ordering = ["id"]
 
-class Cart(models.Model):
-    product = models.ForeignKey("product.Cart",on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.product
+class CartItem(models.Model):
+    product = models.ForeignKey(Product,on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)
+
+    def __unicode__(self):
+        return self.product.title
+
+
+class Cart(models.Model):
+    items = models.ManyToManyField(CartItem,null=True,blank=True)
+    products = models.ManyToManyField(Product, null=True,blank=True)
+    total = models.DecimalField(max_digits=100,decimal_places=2,default=0.00)
+    active = models.BooleanField(default=False)
+
+    def __unicode__(self):
+        return "Cart id: %s" %(self.id)
         

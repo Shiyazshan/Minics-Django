@@ -87,13 +87,13 @@
                   <a class="nav-link" href="{% url 'web:index' %}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="about.html"> About</a>
+                  <a class="nav-link" href="{% url 'user:about' %}"> About</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'product:product' %}">Products</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="why.html">Why Us</a>
+                  <a class="nav-link" href="{% url 'why:whyus' %}">Why Us</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="testimonial.html">Testimonial</a>
@@ -109,16 +109,17 @@
     <section class="slider_section ">
       <div id="customCarousel1" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active">
+          {% for showpage in spotlights %}
+          <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
             <div class="container ">
               <div class="row">
                 <div class="col-md-6">
                   <div class="detail-box">
                     <h1>
-                      Welcome to our shop
+                      {{showpage.title}}
                     </h1>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.
+                      {{showpage.description}}
                     </p>
                     <a href="">
                       Read More
@@ -126,61 +127,15 @@
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="img-box">
-                    <img src="{% static 'images/slider-img.png' %}" alt="">
+                  <div class="img-box ">
+                    <img class="w-75 p-3" src="{{showpage.image.url}}" alt="">
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="carousel-item">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="detail-box">
-                    <h1>
-                      Welcome to our shop
-                    </h1>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.
-                    </p>
-                    <a href="">
-                      Read More
-                    </a>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="img-box">
-                    <img src="{% static 'images/slider-img.png' %}" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="detail-box">
-                    <h1>
-                      Welcome to our shop
-                    </h1>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.
-                    </p>
-                    <a href="">
-                      Read More
-                    </a>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="img-box">
-                    <img src="{% static 'images/slider-img.png' %}" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
+          
         </div>
         <div class="carousel_btn_box">
           <a class="carousel-control-prev" href="#customCarousel1" role="button" data-slide="prev">
@@ -213,11 +168,17 @@
           <div class="box">
             <div class="img-box">
               <img src="{{product.image.url}}" alt="">
-              <a href="" class="add_cart_btn">
+
+             <form action="/" method="post">
+               {% csrf_token %}
+               <!-- <input type="text" value="{{product.id}}"> -->
+              <a href="" type="submit" class="add_cart_btn">
                 <span>
                   Add To Cart
                 </span>
               </a>
+             </form>
+
             </div>
             <div class="detail-box">
               <h5>
@@ -782,9 +743,16 @@
             <h5>
               Newsletter
             </h5>
-            <form action="">
-              <input type="email" placeholder="Enter your email">
-              <button>
+            <form action="{% url 'web:subscribe' %}"
+                  method="post"
+                  class="ajax"
+            >
+            {% csrf_token %}
+              <input type="email"
+                     placeholder="Enter your email"
+                     name="email"
+              >
+              <button type="submit">
                 Subscribe
               </button>
             </form>
@@ -828,6 +796,9 @@
   <script src="{% static 'js/bootstrap.js' %}"></script>
   <!-- custom js -->
   <script src="{% static 'js/custom.js' %}"></script>
+  <script src="{% static 'js/sweetalert2@11.js' %}"></script>
+  <script src="{% static 'js/script.js' %}"></script>
+
 
 
 </body>

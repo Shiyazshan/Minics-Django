@@ -9,7 +9,7 @@
   <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <!-- Site Metas -->
-  <link rel="icon" href="{% sttaic 'images/fevicon.png' %}" type="image/gif" />
+  <link rel="icon" href="{% static 'images/fevicon.png' %}" type="image/gif" />
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
@@ -18,7 +18,7 @@
 
 
   <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
 
   <!-- fonts style -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap' %}" rel="stylesheet"> <!-- range slider -->
@@ -98,13 +98,13 @@
                   <a class="nav-link" href="{% url 'web:index' %}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="about.html"> About</a>
+                  <a class="nav-link" href="{% url 'user:about' %}"> About</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'product:product' %}">Products</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="why.html">Why Us</a>
+                  <a class="nav-link" href="{% url 'why:whyus' %}">Why Us</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="testimonial.html">Testimonial</a>
@@ -141,7 +141,7 @@
         </div>
         <div class="col-md-6 px-0">
           <div class="img-box">
-            <img src="{% sttaic 'images/about-img.jpg' %}" alt="">
+            <img src="{% static 'images/about-img.jpg' %}" alt="">
           </div>
         </div>
       </div>

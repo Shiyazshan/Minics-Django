@@ -19,7 +19,8 @@ INSTALLED_APPS = [
 
     'web',
     'product',
-    'user'
+    'user',
+    'why',
 ]
 
 MIDDLEWARE = [

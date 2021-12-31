@@ -86,13 +86,13 @@
                   <a class="nav-link" href="{% url 'web:index' %}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="about.html"> About</a>
+                  <a class="nav-link" href="{% url 'user:about' %}"> About</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'product:product' %}">Products</a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="why.html">Why Us</a>
+                  <a class="nav-link" href="{% url 'why:whyus' %}">Why Us</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="testimonial.html">Testimonial</a>
@@ -277,7 +277,7 @@
     <div class="container">
       <p>
         &copy; <span id="displayYear"></span> All Rights Reserved By
-        <a href="{% 'https://html.design/' %}">Free Html Templates</a>
+        <a href="{% static 'https://html.design/' %}">Free Html Templates</a>
       </p>
     </div>
   </footer>
