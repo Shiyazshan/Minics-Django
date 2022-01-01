@@ -18,18 +18,18 @@
 
 
   <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="{% sttaic 'css/bootstrap.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
 
   <!-- fonts style -->
-  <link href="{% sttaic 'https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap' %}" rel="stylesheet"> <!-- range slider -->
+  <link href="{% static 'https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap' %}" rel="stylesheet"> <!-- range slider -->
 
   <!-- font awesome style -->
-  <link href="{% sttaic 'css/font-awesome.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
 
   <!-- Custom styles for this template -->
-  <link href="{% sttaic 'css/style.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="{% sttaic 'css/responsive.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
 
 </head>
 
@@ -308,12 +308,12 @@
                 </a>
               </li>
               <li>
-                <a href="{% url 'user:whyus' %}">
+                <a href="{% url 'why:whyus' %}">
                   Why Us
                 </a>
               </li>
               <li>
-                <a href="testimonial.html">
+                <a href="{% url 'web:testimonial' %}">
                   Testimonial
                 </a>
               </li>
@@ -365,11 +365,8 @@
   </footer>
   <!-- footer section -->
 
-  <!-- jQery -->
   <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
-  <!-- bootstrap js -->
   <script src="{% static 'js/bootstrap.js' %}"></script>
-  <!-- custom js -->
   <script src="{% static 'js/custom.js' %}"></script>
 
 

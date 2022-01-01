@@ -18,3 +18,16 @@ class Subscribe(models.Model):
 
     def __str__(self):
         return self.email
+
+
+class Testimonial(models.Model):
+    name = models.CharField(max_length=128)
+    designation = models.CharField(max_length=128)
+    description = models.TextField()
+    image = models.ImageField(upload_to="web",blank=True,null=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ["id"]

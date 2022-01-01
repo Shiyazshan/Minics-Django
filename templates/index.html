@@ -51,7 +51,7 @@
               </button>
             </from>
             <div class="user_option_box">
-              <a href="" class="account-link">
+              <a href="{% url 'user:user_login' %}" class="account-link">
                 <i class="fa fa-user" aria-hidden="true"></i>
                 <span>
                   My Account
@@ -96,7 +96,7 @@
                   <a class="nav-link" href="{% url 'why:whyus' %}">Why Us</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="testimonial.html">Testimonial</a>
+                  <a class="nav-link" href="{% url 'web:testimonial' %}">Testimonial</a>
                 </li>
               </ul>
             </div>
